@@ -504,7 +504,7 @@ static void command_timed_out(void* original_wait_entry) {
 
   // We shouldn't try to recover the stack from this command timeout.
   // If it's caused by a software bug, fix it. If it's a hardware bug, fix it.
-  abort();
+  kill(getpid(), SIGKILL);
 }
 
 // Event/packet receiving functions
